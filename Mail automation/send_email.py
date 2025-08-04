@@ -11,7 +11,7 @@ EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
 EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
 # Load recipients
-df = pd.read_csv('recipients2.csv')
+df = pd.read_csv('recipients.csv')
 
 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
     smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
@@ -48,3 +48,4 @@ with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
             print(f"Sent to {row['email']}")
         except Exception as e:
             print(f"Failed to send to {row['email']}: {e}")
+
